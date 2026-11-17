@@ -78,7 +78,7 @@ class HomePageView(TemplateView):
 
 # def uzb_page(request):
 #     news_list = News.objects.filter(status=News.Status.Published)
-#     uzbek_news = News.objects.filter(category__name="Uzbekiston")
+#     uzbek_news = News.objects.filter(status=News.Status.Published, category__name="Uzbekiston")
 #     uzb_news_1 = News.published.filter(category__name="Uzbekiston").order_by('-publish_time')[0]
 #     uzb_news_2 = News.published.filter(category__name="Uzbekiston").order_by('-publish_time')[1]
 #     uzb_news_3 = News.published.filter(category__name="Uzbekiston").order_by('-publish_time')[2]
@@ -103,7 +103,7 @@ class UzbPageView(ListView):
         return News.objects.filter(status=News.Status.Published)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        uzbek_news = News.objects.filter(category__name="Uzbekiston").order_by('-publish_time')
+        uzbek_news = News.objects.filter(status=News.Status.Published, category__name="Uzbekiston").order_by('-publish_time')
         context['uzbek_news'] = uzbek_news
         context['uzb_news_1'] = uzbek_news[0] if len(uzbek_news) > 0 else None
         context['uzb_news_2'] = uzbek_news[1] if len(uzbek_news) > 1 else None
@@ -114,7 +114,7 @@ class UzbPageView(ListView):
 
 # def jahon_page(request):
 #     jahon_news_list = News.objects.filter(status=News.Status.Published)
-#     jahon_news = News.objects.filter(category__name="Jahon")
+#     jahon_news = News.objects.filter(status=News.Status.Published, category__name="Jahon")
 #     jahon_news_1 = News.published.filter(category__name="Jahon").order_by('-publish_time')[0]
 #     jahon_news_2 = News.published.filter(category__name="Jahon").order_by('-publish_time')[1]
 #     jahon_news_3 = News.published.filter(category__name="Jahon").order_by('-publish_time')[2]
@@ -142,7 +142,7 @@ class WorldNewsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        jahon_news = News.objects.filter(category__name="Jahon").order_by('-publish_time')
+        jahon_news = News.objects.filter(status=News.Status.Published, category__name="Jahon").order_by('-publish_time')
         context['jahon_news'] = jahon_news
         context['jahon_news_1'] = jahon_news[0] if len(jahon_news) > 0 else None
         context['jahon_news_2'] = jahon_news[1] if len(jahon_news) > 1 else None
@@ -153,7 +153,7 @@ class WorldNewsView(ListView):
 
 # def sport_page(request):
 #     sport_news_list = News.objects.filter(status=News.Status.Published)
-#     sport_news = News.objects.filter(category__name="Sport")
+#     sport_news = News.objects.filter(status=News.Status.Published, category__name="Sport")
 #     sport_news_1 = News.published.filter(category__name="Sport").order_by('-publish_time')[0]
 #     sport_news_2 = News.published.filter(category__name="Sport").order_by('-publish_time')[1]
 #     sport_news_3 = News.published.filter(category__name="Sport").order_by('-publish_time')[2]
@@ -182,7 +182,7 @@ class SportNewsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        sport_news = News.objects.filter(category__name="Sport").order_by('-publish_time')
+        sport_news = News.objects.filter(status=News.Status.Published, category__name="Sport").order_by('-publish_time')
         context['sport_news'] = sport_news
         context['sport_news_1'] = sport_news[0] if len(sport_news) > 0 else None
         context['sport_news_2'] = sport_news[1] if len(sport_news) > 1 else None
@@ -193,7 +193,7 @@ class SportNewsView(ListView):
 
 # def fan_page(request):
 #     fan_news_list = News.objects.filter(status=News.Status.Published)
-#     fan_news = News.objects.filter(category__name="Fan-texnika")
+#     fan_news = News.objects.filter(status=News.Status.Published, category__name="Fan-texnika")
 #     fan_news_1 = News.published.filter(category__name="Fan-texnika").order_by('-publish_time')[0]
 #     fan_news_2 = News.published.filter(category__name="Fan-texnika").order_by('-publish_time')[1]
 #     fan_news_3 = News.published.filter(category__name="Fan-texnika").order_by('-publish_time')[2]
@@ -222,7 +222,7 @@ class SubjectNewsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        fan_news = News.objects.filter(category__name="Fan-texnika").order_by('-publish_time')
+        fan_news = News.objects.filter(status=News.Status.Published, category__name="Fan-texnika").order_by('-publish_time')
         context['fan_news'] = fan_news
         context['fan_news_1'] = fan_news[0] if len(fan_news) > 0 else None
         context['fan_news_2'] = fan_news[1] if len(fan_news) > 1 else None

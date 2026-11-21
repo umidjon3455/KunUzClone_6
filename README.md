@@ -47,9 +47,12 @@
    ```bash
    python -m pip install --upgrade pip
    pip install -r requirements.txt
+   Copy-Item .env.example .env
    ```
 
-4. Migratsiyalar va server:
+5. `.env` faylini oching va `DJANGO_SECRET_KEY` qiymatini uzun, tasodifiy maxfiy kalitga almashtiring. Haqiqiy kalitni GitHub'ga yuklamang.
+
+6. Migratsiyalar va server:
 
    ```bash
    python manage.py migrate
